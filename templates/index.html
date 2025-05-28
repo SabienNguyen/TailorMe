@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TailorMe</title>
+</head>
+<body>
+  <h1>TailorMe – Resume Matcher</h1>
+  <form action="/match" method="post">
+    <label for="resume">Resume:</label><br>
+    <textarea name="resume" rows="10" cols="60">{{ resume or "" }}</textarea><br><br>
+
+    <label for="job">Job Description:</label><br>
+    <textarea name="job" rows="10" cols="60">{{ job or "" }}</textarea><br><br>
+
+    <button type="submit">Match</button>
+  </form>
+
+  {% if score %}
+    <h2>Score: {{ score }}</h2>
+    <p>{{ interpretation }}</p>
+    <h3>GPT Feedback</h3>
+    <pre>{{ feedback }}</pre>
+  {% endif %}
+</body>
+</html>
